@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tech Blog</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #f4f4f4;
+      padding: 0;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #333;
+      padding: 10px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    article {
+      flex: 2;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    aside {
+      flex: 1;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      height: fit-content;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #111;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>My Tech Blog</h1>
+    <p>Latest Posts • Tutorials • Coding Tips</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Articles</a>
+    <a href="#">Tech News</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Main Blog Layout -->
+  <div class="container">
+
+    <!-- Main Article -->
+    <article>
+      <h2>Why Web Development is the Best Skill in 2025</h2>
+      <p>
+        Web development continues to be one of the most in-demand and highest-paying skills.
+        From frontend to backend, companies are constantly hiring developers.
+      </p>
+
+      <h3>Top Web Technologies</h3>
+      <table>
+        <tr>
+          <th>Technology</th>
+          <th>Usage</th>
+          <th>Difficulty</th>
+        </tr>
+        <tr>
+          <td>HTML</td>
+          <td>Structure</td>
+          <td>Easy</td>
+        </tr>
+        <tr>
+          <td>CSS</td>
+          <td>Styling</td>
+          <td>Medium</td>
+        </tr>
+        <tr>
+          <td>JavaScript</td>
+          <td>Logic</td>
+          <td>Medium</td>
+        </tr>
+        <tr>
+          <td>React</td>
+          <td>Interactive UI</td>
+          <td>Hard</td>
+        </tr>
+      </table>
+
+      <h3>Leave a Comment</h3>
+
+      <form>
+        <label>Your Name</label>
+        <input type="text" placeholder="Enter your name">
+
+        <label>Your Email</label>
+        <input type="email" placeholder="Enter your email">
+
+        <label>Your Comment</label>
+        <textarea rows="5" placeholder="Write your comment..."></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+
+    </article>
+
+    <!-- Sidebar -->
+    <aside>
+      <h3>About Me</h3>
+      <p>Hello! I'm a web developer who loves building modern and responsive websites.</p>
+
+      <h3>Popular Articles</h3>
+      <ul>
+        <li>Top 10 VS Code Extensions</li>
+        <li>How to Learn JavaScript Fast</li>
+        <li>HTML & CSS Complete Guide</li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 My Tech Blog. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

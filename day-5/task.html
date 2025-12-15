@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery (25 Images)</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+  }
+
+  body {
+    background: #f4f4f4;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  /* ----- GRID GALLERY ----- */
+  .gallery {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .photo {
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+    animation: fadeIn 1s ease;
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+  }
+
+  /* Zoom Hover */
+  .photo:hover img {
+    transform: scale(1.15);
+  }
+
+  /* Caption on Hover */
+  .caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    background: rgba(0,0,0,0.55);
+    color: white;
+    opacity: 0;
+    transition: 0.4s;
+  }
+
+  .photo:hover .caption {
+    opacity: 1;
+  }
+
+  /* Fade Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+</head>
+<body>
+
+<h1>Photo Gallery (25 Images)</h1>
+
+<div class="gallery">
+
+  <!-- IMAGE 1 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+    <div class="caption">Beach</div>
+  </div>
+
+  <!-- IMAGE 2 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d">
+    <div class="caption">Music</div>
+  </div>
+
+  <!-- IMAGE 3 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
+    <div class="caption">Tech</div>
+  </div>
+
+  <!-- IMAGE 4 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159">
+    <div class="caption">Coding</div>
+  </div>
+
+  <!-- IMAGE 5 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1606112219348-204d7d8b94ee">
+    <div class="caption">Gaming</div>
+  </div>
+
+  <!-- IMAGE 6 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+    <div class="caption">Nature</div>
+  </div>
+
+  <!-- IMAGE 7 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1499084732479-de2c02d45fc4">
+    <div class="caption">Podcast</div>
+  </div>
+
+  <!-- IMAGE 8 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+    <div class="caption">Programming</div>
+  </div>
+
+  <!-- IMAGE 9 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7">
+    <div class="caption">Laptop</div>
+  </div>
+
+  <!-- IMAGE 10 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1516214104703-4d75a9c5b590">
+    <div class="caption">Photography</div>
+  </div>
+
+  <!-- IMAGE 11 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e">
+    <div class="caption">Forest</div>
+  </div>
+
+  <!-- IMAGE 12 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+    <div class="caption">Portrait</div>
+  </div>
+
+  <!-- IMAGE 13 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+    <div class="caption">Sky</div>
+  </div>
+
+  <!-- IMAGE 14 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30">
+    <div class="caption">Mountains</div>
+  </div>
+
+  <!-- IMAGE 15 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
+    <div class="caption">Waves</div>
+  </div>
+
+  <!-- IMAGE 16 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e">
+    <div class="caption">Sunset</div>
+  </div>
+
+  <!-- IMAGE 17 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1519817650390-64a93db511aa">
+    <div class="caption">Fitness</div>
+  </div>
+
+  <!-- IMAGE 18 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee">
+    <div class="caption">Wildlife</div>
+  </div>
+
+  <!-- IMAGE 19 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+    <div class="caption">Car</div>
+  </div>
+
+  <!-- IMAGE 20 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0">
+    <div class="caption">Drone Shot</div>
+  </div>
+
+  <!-- IMAGE 21 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7">
+    <div class="caption">Bird</div>
+  </div>
+
+  <!-- IMAGE 22 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+    <div class="caption">Food</div>
+  </div>
+
+  <!-- IMAGE 23 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f">
+    <div class="caption">Street</div>
+  </div>
+
+  <!-- IMAGE 24 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1504199367641-aba8151af3dd">
+    <div class="caption">Bridge</div>
+  </div>
+
+  <!-- IMAGE 25 -->
+  <div class="photo">
+    <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439">
+    <div class="caption">Coffee</div>
+  </div>
+
+</div>
+
+</body>
+</html>

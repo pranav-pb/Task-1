@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Google - Mockup (UI Only)</title>
+  <style>
+    :root{
+      --bg: #fff;
+      --muted: #70757a;
+      --search-border: #dfe1e5;
+      --shadow: rgba(60,64,67,0.15);
+      --accent: #1a73e8;
+      font-family: "Arial", "Helvetica", sans-serif;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background: #ffffff;
+      color: #202124;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Page container centers the content vertically like Google */
+    .page {
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* Logo (text-based, colored similarly but not copying trademark) */
+    .logo {
+      font-size:88px;
+      font-weight:700;
+      letter-spacing:2px;
+      margin:0 0 24px 0;
+      display:flex;
+      gap:6px;
+      align-items:center;
+      justify-content:center;
+    }
+    /* colored letters */
+    .logo span { display:inline-block; }
+    .logo .l1 { color: #4285f4; } /* blue */
+    .logo .l2 { color: #ea4335; } /* red */
+    .logo .l3 { color: #fbbc05; } /* yellow */
+    .logo .l4 { color: #4285f4; } /* blue */
+    .logo .l5 { color: #34a853; } /* green */
+    .logo .l6 { color: #ea4335; } /* red */
+
+    /* Search card */
+    .search-card{
+      width:min(650px, 92%);
+      background:var(--bg);
+      border-radius:24px;
+      padding:14px 18px;
+      box-shadow: 0 6px 10px var(--shadow);
+      display:flex;
+      align-items:center;
+      gap:12px;
+      border:1px solid var(--search-border);
+    }
+
+    .search-icon {
+      width:20px; height:20px;
+      opacity:.6;
+      flex:0 0 20px;
+    }
+
+    .search-input{
+      flex:1;
+      border:0;
+      outline:0;
+      font-size:18px;
+      color: #202124;
+      padding:8px 4px;
+      background:transparent;
+    }
+
+    .mic {
+      width:20px; height:20px;
+      opacity:.6;
+      flex:0 0 20px;
+    }
+
+    /* Buttons row */
+    .actions {
+      margin-top:20px;
+      display:flex;
+      gap:12px;
+    }
+
+    .btn{
+      border:1px solid #f1f3f4;
+      background:#f8f9fa;
+      padding:10px 16px;
+      border-radius:4px;
+      font-size:14px;
+      color:#3c4043;
+      cursor:pointer;
+      box-shadow: none;
+    }
+    .btn.primary{
+      background:transparent;
+      border:1px solid transparent;
+      color:var(--accent);
+    }
+
+    /* Footer - positioned at bottom of viewport */
+    .footer {
+      width:100%;
+      background: #f2f2f2;
+      padding:10px 0;
+      position:fixed;
+      left:0;
+      bottom:0;
+      display:flex;
+      justify-content:center;
+      box-shadow: 0 -1px 0 rgba(0,0,0,0.05);
+    }
+    .footer .links{
+      width:min(1000px, 94%);
+      display:flex;
+      justify-content:space-between;
+      font-size:14px;
+      color:var(--muted);
+      align-items:center;
+    }
+    .left-links, .right-links { display:flex; gap:18px; align-items:center; }
+    a { color:inherit; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    /* Responsive adjustments */
+    @media (max-width:520px){
+      .logo { font-size:56px; margin-bottom:18px; }
+      .search-card{ padding:10px; border-radius:20px; }
+      .actions { flex-direction:column; gap:10px; align-items:center; }
+      .footer .links { font-size:13px; gap:10px; }
+    }
+
+    /* small visual helpers to mimic subtle icons */
+    .icon-circle {
+      width:36px; height:36px;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background: #e8f0fe;
+      color:var(--accent);
+      font-weight:700;
+    }
+  </style>
+</head>
+<body>
+  <main class="page" role="main" aria-labelledby="main-heading">
+    <!-- Logo: letter spans allow color styling -->
+    <h1 id="main-heading" class="logo" aria-hidden="true">
+      <span class="l1">G</span><span class="l2">o</span><span class="l3">o</span>
+      <span class="l4">g</span><span class="l5">l</span><span class="l6">e</span>
+    </h1>
+
+    <!-- Search area -->
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="search-card" role="search" aria-label="Search">
+        <!-- search icon (simple svg) -->
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16a6.471 6.471 0 004.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM10 15a5 5 0 110-10 5 5 0 010 10z"/>
+        </svg>
+
+        <input class="search-input" type="text" aria-label="Search input" placeholder="Search Google or type a URL" />
+
+        <!-- microphone icon -->
+        <svg class="mic" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3zm5-3a1 1 0 012 0 8 8 0 01-7 7.93V22a1 1 0 01-2 0v-2.07A8 8 0 015 12a1 1 0 012 0 6 6 0 0011.99 0z"/>
+        </svg>
+      </div>
+
+      <div class="actions" role="group" aria-label="Search buttons">
+        <button class="btn">Google Search</button>
+        <button class="btn primary">I'm Feeling Lucky</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="links">
+      <div class="left-links">
+        <span>India</span>
+        <a href="#" tabindex="-1">Advertising</a>
+        <a href="#" tabindex="-1">Business</a>
+        <a href="#" tabindex="-1">How Search works</a>
+      </div>
+      <div class="right-links">
+        <a href="#" tabindex="-1">Privacy</a>
+        <a href="#" tabindex="-1">Terms</a>
+        <a href="#" tabindex="-1">Settings</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

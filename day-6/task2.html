@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Calculator</title>
+
+<style>
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text: #111;
+  --btn: #e0e0e0;
+  --accent: #28a745;
+}
+
+body.dark {
+  --bg: #121212;
+  --card: #1e1e1e;
+  --text: #ffffff;
+  --btn: #333;
+  --accent: #4caf50;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calculator {
+  background: var(--card);
+  padding: 25px;
+  width: 380px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 {
+  margin: 0;
+}
+
+.theme-btn {
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: var(--btn);
+}
+
+#display {
+  width: 100%;
+  margin: 15px 0;
+  padding: 15px;
+  font-size: 24px;
+  border-radius: 8px;
+  border: none;
+  background: var(--btn);
+  color: var(--text);
+  text-align: right;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  background: var(--btn);
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.equal {
+  grid-column: span 2;
+  background: var(--accent);
+  color: white;
+}
+
+.history {
+  margin-top: 15px;
+  font-size: 14px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.history h4 {
+  margin-bottom: 5px;
+}
+
+.history div {
+  opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+  <div class="top">
+    <h2>Calculator</h2>
+    <div class="theme-btn" onclick="toggleTheme()">🌗</div>
+  </div>
+
+  <input type="text" id="display" disabled>
+
+  <div class="buttons">
+    <button onclick="clearAll()">C</button>
+    <button onclick="backspace()">⌫</button>
+    <button onclick="calcFunc('sqrt')">√</button>
+    <button onclick="append('/')">÷</button>
+
+    <button onclick="calcFunc('sin')">sin</button>
+    <button onclick="calcFunc('cos')">cos</button>
+    <button onclick="calcFunc('tan')">tan</button>
+    <button onclick="append('*')">×</button>
+
+    <button onclick="append('7')">7</button>
+    <button onclick="append('8')">8</button>
+    <button onclick="append('9')">9</button>
+    <button onclick="append('-')">−</button>
+
+    <button onclick="append('4')">4</button>
+    <button onclick="append('5')">5</button>
+    <button onclick="append('6')">6</button>
+    <button onclick="append('+')">+</button>
+
+    <button onclick="append('1')">1</button>
+    <button onclick="append('2')">2</button>
+    <button onclick="append('3')">3</button>
+    <button onclick="square()">x²</button>
+
+    <button onclick="append('0')">0</button>
+    <button onclick="append('.')">.</button>
+    <button class="equal" onclick="calculate()">=</button>
+  </div>
+
+  <div class="history">
+    <h4>History</h4>
+    <div id="history"></div>
+  </div>
+</div>
+
+<script>
+const display = document.getElementById("display");
+const historyBox = document.getElementById("history");
+
+function append(val) {
+  display.value += val;
+}
+
+function clearAll() {
+  display.value = "";
+}
+
+function backspace() {
+  display.value = display.value.slice(0, -1);
+}
+
+function calculate() {
+  try {
+    let result = eval(display.value);
+    addHistory(display.value + " = " + result);
+    display.value = result;
+  } catch {
+    display.value = "Error";
+  }
+}
+
+function square() {
+  if (display.value) {
+    let result = Math.pow(Number(display.value), 2);
+    addHistory(display.value + "² = " + result);
+    display.value = result;
+  }
+}
+
+function calcFunc(type) {
+  if (!display.value) return;
+  let num = Number(display.value);
+  let result;
+
+  if (type === "sqrt") result = Math.sqrt(num);
+  if (type === "sin") result = Math.sin(num * Math.PI / 180);
+  if (type === "cos") result = Math.cos(num * Math.PI / 180);
+  if (type === "tan") result = Math.tan(num * Math.PI / 180);
+
+  addHistory(type + "(" + num + ") = " + result.toFixed(3));
+  display.value = result.toFixed(3);
+}
+
+function addHistory(text) {
+  let div = document.createElement("div");
+  div.innerText = text;
+  historyBox.prepend(div);
+
+  localStorage.setItem("calcHistory", historyBox.innerHTML);
+}
+
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
+
+// Load history
+historyBox.innerHTML = localStorage.getItem("calcHistory") || "";
+
+// Keyboard support
+document.addEventListener("keydown", e => {
+  if ("0123456789.+-*/".includes(e.key)) append(e.key);
+  if (e.key === "Enter") calculate();
+  if (e.key === "Backspace") backspace();
+});
+</script>
+
+</body>
+</html>

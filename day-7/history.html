@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube – History</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg:#ffffff; --text:#111; --card:#f4f4f4; --nav:#fff; --muted:#666; --border:#ddd;
+    }
+    body.dark {
+      --bg:#0b0b0d; --text:#f2f2f2; --card:#19191a; --nav:#111; --muted:#9aa0a6; --border:#333;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial; }
+
+    body { background:var(--bg); color:var(--text); }
+
+    .navbar {
+      position:fixed; top:0; left:0; right:0;
+      height:64px; background:var(--nav);
+      border-bottom:1px solid var(--border);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 18px; z-index:30;
+    }
+
+    .search-area { display:flex; gap:8px; width:45%; }
+    .search-area input { flex:1; padding:10px; border-radius:20px; background:var(--card); border:1px solid var(--border); }
+    .icon-btn, .theme-btn { background:var(--card); border:0; padding:8px 12px; border-radius:50%; cursor:pointer; }
+
+    .wrap { margin-top:84px; display:flex; gap:20px; padding:20px; }
+    .sidebar { width:220px; display:flex; flex-direction:column; }
+    .sidebar a { text-decoration:none; padding:12px; display:flex; gap:10px; color:var(--text); border-radius:8px; }
+    .sidebar a:hover { background:var(--card); }
+
+    .content { flex:1; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:18px; margin-top:20px; }
+
+    .thumb {
+      height:150px; border-radius:8px;
+      background-size:cover; background-position:center;
+      position:relative;
+    }
+    .duration {
+      position:absolute; top:8px; right:8px;
+      background:rgba(0,0,0,0.7); color:white;
+      padding:4px 6px; border-radius:4px; font-size:12px;
+    }
+
+    .meta { padding:10px; }
+    .title { font-weight:600; }
+    .channel { color:var(--muted); font-size:13px; margin-top:6px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div style="color:red; font-weight:700; font-size:20px; display:flex; gap:6px; align-items:center;">
+      <i class="fa-brands fa-youtube"></i> YouTube
+    </div>
+
+    <div class="search-area">
+      <input placeholder="Search history">
+      <button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="icon-btn"><i class="fa-solid fa-microphone"></i></button>
+    </div>
+
+    <div style="display:flex; gap:10px;">
+      <button class="theme-btn" onclick="toggleTheme()">🌗</button>
+      <button class="icon-btn"><i class="fa-solid fa-circle-user"></i></button>
+    </div>
+  </header>
+
+  <!-- LAYOUT -->
+  <div class="wrap">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="trending.html"><i class="fa-solid fa-fire"></i> Trending</a>
+      <a href="subscriptions.html"><i class="fa-solid fa-clapperboard"></i> Subscriptions</a>
+      <a href="library.html"><i class="fa-solid fa-photo-film"></i> Library</a>
+      <a href="history.html"><i class="fa-solid fa-clock-rotate-left"></i> History</a>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+      <h1>Watch History</h1>
+
+      <div class="grid">
+
+        <!-- history 1 -->
+        <article class="card">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');">
+            <div class="duration">8:12</div>
+          </div>
+          <div class="meta">
+            <div class="title">Travel Tips — Beach Photography</div>
+            <div class="channel">TravelShots • 45K views</div>
+          </div>
+        </article>
+
+        <!-- history 2 -->
+        <article class="card">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1511379938547-c1f69419868d');">
+            <div class="duration">5:22</div>
+          </div>
+          <div class="meta">
+            <div class="title">How Music Production Works</div>
+            <div class="channel">Studio101 • 82K views</div>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    function toggleTheme() { document.body.classList.toggle('dark'); }
+  </script>
+
+</body>
+</html>

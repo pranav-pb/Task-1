@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Create Account – YouTube</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#111;
+  --card:#f5f5f5;
+  --input:#e8e8e8;
+  --border:#ccc;
+}
+
+body.dark{
+  --bg:#181818;
+  --text:#ffffff;
+  --card:#2a2a2a;
+  --input:#3a3a3a;
+  --border:#555;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.container{
+  width:380px;
+  background:var(--card);
+  padding:25px;
+  border-radius:12px;
+  border:1px solid var(--border);
+}
+
+.container h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--input);
+  color:var(--text);
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:20px;
+  background:red;
+  color:white;
+  border:0;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.switch{
+  text-align:center;
+  margin-top:12px;
+}
+
+.switch a{
+  color:red;
+  text-decoration:none;
+}
+
+.theme-btn{
+  position:absolute;
+  top:20px;
+  right:20px;
+  padding:8px 14px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<button class="theme-btn" onclick="toggleTheme()">🌗</button>
+
+<div class="container">
+  <h2>Create Account</h2>
+
+  <input type="text" placeholder="Full Name">
+  <input type="email" placeholder="Email">
+  <input type="password" placeholder="Password">
+  <input type="password" placeholder="Confirm Password">
+
+  <button>Create Account</button>
+
+  <div class="switch">
+    Already have an account? <a href="#">Login</a>
+  </div>
+</div>
+
+<script>
+function toggleTheme(){
+  document.body.classList.toggle('dark');
+}
+</script>
+
+</body>
+</html>

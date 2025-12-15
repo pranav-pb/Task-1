@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>YouTube – Home</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+:root {
+  --bg:#ffffff;
+  --text:#111;
+  --nav:#ffffff;
+  --card:#f2f2f2;
+  --input-bg:#e8e8e8;
+  --icon:#111;
+  --muted:#666;
+}
+
+body.dark {
+  --bg:#181818;
+  --text:#ffffff;
+  --nav:#202020;
+  --card:#303030;
+  --input-bg:#3a3a3a;
+  --icon:#ffffff;
+  --muted:#aaaaaa;
+}
+
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial; }
+
+/* Body */
+body {
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* NAVBAR */
+.navbar {
+  position:fixed;
+  top:0; left:0; right:0;
+  height:65px;
+  background:var(--nav);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  border-bottom:1px solid #4444;
+  z-index:20;
+}
+
+.logo {
+  color:red;
+  font-size:22px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* Search Bar */
+.search-area {
+  display:flex;
+  gap:8px;
+  width:50%;
+}
+
+.search-area input {
+  flex:1;
+  padding:10px 15px;
+  border-radius:20px;
+  background:var(--input-bg);
+  border:1px solid #4444;
+  color:var(--text);
+}
+
+.search-area input::placeholder {
+  color:var(--muted);
+}
+
+.icon-btn {
+  border:0;
+  background:var(--input-bg);
+  padding:10px;
+  border-radius:50%;
+  cursor:pointer;
+  color:var(--icon);
+}
+
+/* Theme */
+.theme-btn {
+  padding:8px 14px;
+  background:var(--card);
+  border:0;
+  border-radius:20px;
+  color:var(--text);
+  cursor:pointer;
+}
+
+/* Layout */
+.wrap {
+  margin-top:85px;
+  display:flex;
+  gap:20px;
+  padding:20px;
+}
+
+.sidebar {
+  width:220px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.sidebar a {
+  text-decoration:none;
+  color:var(--text);
+  padding:12px;
+  border-radius:8px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.sidebar a:hover {
+  background:var(--card);
+}
+
+/* Content */
+.content {
+  flex:1;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:18px;
+  margin-top:18px;
+}
+
+/* Video Card */
+
+
+.thumb {
+  height:160px;
+  background-size:cover;
+  background-position:center;
+  border-radius:10px;
+  position:relative;
+}
+
+.duration {
+  position:absolute;
+  top:8px;
+  right:8px;
+  background:rgba(0,0,0,0.7);
+  padding:4px 6px;
+  font-size:12px;
+  border-radius:4px;
+  color:white;
+}
+
+.meta {
+  padding:10px 4px;
+}
+
+.title {
+  font-weight:bold;
+}
+
+.channel, .views {
+  color:var(--muted);
+  font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo"><i class="fa-brands fa-youtube"></i> YouTube</div>
+
+  <div class="search-area">
+    <input placeholder="Search" />
+    <button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <button class="icon-btn"><i class="fa-solid fa-microphone"></i></button>
+  </div>
+
+  <div style="display:flex; gap:12px">
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    <a href="create-account.html" class="icon-btn" style="text-decoration:none;">
+      <i class="fa-solid fa-circle-user"></i>
+    </a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="trending.html"><i class="fa-solid fa-fire"></i> Trending</a>
+    <a href="subscriptions.html"><i class="fa-solid fa-clapperboard"></i> Subscriptions</a>
+    <a href="library.html"><i class="fa-solid fa-photo-film"></i> Library</a>
+    <a href="history.html"><i class="fa-solid fa-clock-rotate-left"></i> History</a>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+    <h1>Recommended</h1>
+
+    <div class="grid">
+
+      <!-- 1 -->
+      <article class="card">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8')">
+          <div class="duration">12:34</div>
+        </div>
+        <div class="meta">
+          <div class="title">Smartphone Review 2025</div>
+          <div class="channel">TechWorld</div>
+          <div class="views">1.2M views • 2 days ago</div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="card">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1587620962725-abab7fe55159')">
+          <div class="duration">09:55</div>
+        </div>
+        <div class="meta">
+          <div class="title">Learn JavaScript in 10 Minutes</div>
+          <div class="channel">CodeCraft</div>
+          <div class="views">450K views • 3 days ago</div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="card">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1606112219348-204d7d8b94ee')">
+          <div class="duration">15:09</div>
+        </div>
+        <div class="meta">
+          <div class="title">INSANE Gaming Moments</div>
+          <div class="channel">GameSpot</div>
+          <div class="views">800K views • 1 week ago</div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="card">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')">
+          <div class="duration">11:20</div>
+        </div>
+        <div class="meta">
+          <div class="title">Hidden Beaches in Goa</div>
+          <div class="channel">TravelGo</div>
+          <div class="views">210K views • 2 weeks ago</div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="card">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1511379938547-c1f69419868d')">
+          <div class="duration">03:44</div>
+        </div>
+        <div class="meta">
+          <div class="title">New Trending Song</div>
+          <div class="channel">MusicWave</div>
+          <div class="views">930K views • 1 month ago</div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+</div>
+
+<script>
+function toggleTheme(){
+  document.body.classList.toggle('dark');
+}
+</script>
+
+</body>
+</html>
